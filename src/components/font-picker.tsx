@@ -93,19 +93,6 @@ body { font-family: ${bodyFont.value}; }
           <div className="absolute top-0 left-0">
             <ThemeToggle />
           </div>
-          {comparisonCombos.length > 0 && (
-            <div className="absolute top-0 right-0">
-              <Button
-                variant="default"
-                size="sm"
-                onClick={() => setShowComparison(true)}
-                className="gap-2"
-              >
-                <Eye className="h-4 w-4" />
-                مقارنة ({comparisonCombos.length})
-              </Button>
-            </div>
-          )}
           <h1 className="text-5xl font-extrabold tracking-tight bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent pb-2">
             منسق الخطوط العربية
           </h1>
@@ -228,6 +215,7 @@ body { font-family: ${bodyFont.value}; }
                 onHeadingSizeChange={setHeadingSize}
                 onBodySizeChange={setBodySize}
                 onToggleComparison={handleToggleComparison}
+                onShowComparison={() => setShowComparison(true)}
                 onApplyCombination={(combo) => {
                   setHeadingFont(combo.heading);
                   setBodyFont(combo.body);

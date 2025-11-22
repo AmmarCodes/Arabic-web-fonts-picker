@@ -12,6 +12,14 @@ import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
 import { Slider } from "@/components/ui/slider";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Button } from "@/components/ui/button";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import { Eye } from "lucide-react";
 
 interface FontControlsProps {
   headingFont: Font;
@@ -24,6 +32,7 @@ interface FontControlsProps {
   onHeadingSizeChange: (size: number) => void;
   onBodySizeChange: (size: number) => void;
   onToggleComparison: (combo: FontCombination) => void;
+  onShowComparison: () => void;
   onApplyCombination: (combo: FontCombination) => void;
 }
 
@@ -38,6 +47,7 @@ export function FontControls({
   onHeadingSizeChange,
   onBodySizeChange,
   onToggleComparison,
+  onShowComparison,
   onApplyCombination,
 }: FontControlsProps) {
   return (
@@ -128,97 +138,126 @@ export function FontControls({
       </Card>
 
       <div className="space-y-4">
-        <h2 className="text-xl font-semibold">توليفات شائعة</h2>
+        <div className="flex items-center justify-between">
+          <h2 className="text-xl font-semibold">توليفات شائعة</h2>
+          {comparisonCombos.length > 0 && (
+            <Button
+              variant="default"
+              size="sm"
+              onClick={onShowComparison}
+              className="gap-2"
+            >
+              <Eye className="h-4 w-4" />
+              مقارنة ({comparisonCombos.length})
+            </Button>
+          )}
+        </div>
         <div className="grid gap-4 grid-cols-1">
-          {combinations.map((combo) => {
-            const isSelected =
-              combo.heading.name === headingFont.name &&
-              combo.body.name === bodyFont.name;
-            const isInComparison = comparisonCombos.some(
-              (c) =>
-                c.heading.name === combo.heading.name &&
-                c.body.name === combo.body.name
-            );
+          <TooltipProvider>
+            {combinations.map((combo) => {
+              const isSelected =
+                combo.heading.name === headingFont.name &&
+                combo.body.name === bodyFont.name;
+              const isInComparison = comparisonCombos.some(
+                (c) =>
+                  c.heading.name === combo.heading.name &&
+                  c.body.name === combo.body.name
+              );
 
-            return (
-              <div
-                key={combo.name}
-                className={cn(
-                  "group relative overflow-hidden rounded-xl border bg-card text-card-foreground shadow-sm transition-all hover:shadow-md hover:border-primary/50",
-                  isSelected &&
-                    "border-primary ring-1 ring-primary shadow-md bg-primary/5"
-                )}
-              >
-                <div className="absolute top-3 left-3 z-10">
-                  <Checkbox
-                    checked={isInComparison}
-                    onCheckedChange={() => onToggleComparison(combo)}
-                    disabled={!isInComparison && comparisonCombos.length >= 3}
-                    className="bg-background"
-                  />
-                </div>
+              return (
                 <div
-                  className="p-4 cursor-pointer"
-                  onClick={() => onApplyCombination(combo)}
+                  key={combo.name}
+                  className={cn(
+                    "group relative overflow-hidden rounded-xl border bg-card text-card-foreground shadow-sm transition-all hover:shadow-md hover:border-primary/50",
+                    isSelected &&
+                      "border-primary ring-1 ring-primary shadow-md bg-primary/5"
+                  )}
                 >
-                  <div className="flex items-center justify-between mb-2">
-                    <div className="flex items-center gap-2">
-                      <h3
-                        className={cn(
-                          "font-bold text-lg transition-colors",
-                          isSelected
-                            ? "text-primary"
-                            : "group-hover:text-primary"
-                        )}
-                      >
-                        {combo.name}
-                      </h3>
-                      {combo.badge && (
-                        <span
+                  <div
+                    className="p-4 cursor-pointer"
+                    onClick={() => onApplyCombination(combo)}
+                  >
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="flex items-center gap-2">
+                        <h3
                           className={cn(
-                            "text-xs px-2 py-0.5 rounded-full font-medium",
-                            combo.badge === "موصى به" &&
-                              "bg-primary/10 text-primary",
-                            combo.badge === "عصري" &&
-                              "bg-blue-500/10 text-blue-600 dark:text-blue-400",
-                            combo.badge === "تقليدي" &&
-                              "bg-amber-500/10 text-amber-600 dark:text-amber-400",
-                            combo.badge === "جريء" &&
-                              "bg-purple-500/10 text-purple-600 dark:text-purple-400"
+                            "font-bold text-lg transition-colors",
+                            isSelected
+                              ? "text-primary"
+                              : "group-hover:text-primary"
                           )}
                         >
-                          {combo.badge}
+                          {combo.name}
+                        </h3>
+                        {combo.badge && (
+                          <span
+                            className={cn(
+                              "text-xs px-2 py-0.5 rounded-full font-medium",
+                              combo.badge === "موصى به" &&
+                                "bg-primary/10 text-primary",
+                              combo.badge === "عصري" &&
+                                "bg-blue-500/10 text-blue-600 dark:text-blue-400",
+                              combo.badge === "تقليدي" &&
+                                "bg-amber-500/10 text-amber-600 dark:text-amber-400",
+                              combo.badge === "جريء" &&
+                                "bg-purple-500/10 text-purple-600 dark:text-purple-400"
+                            )}
+                          >
+                            {combo.badge}
+                          </span>
+                        )}
+                      </div>
+                      <div className="flex items-center gap-2">
+                        {isSelected && (
+                          <div className="h-2 w-2 rounded-full bg-primary animate-pulse" />
+                        )}
+                        <Tooltip>
+                          <TooltipTrigger asChild>
+                            <div onClick={(e) => e.stopPropagation()}>
+                              <Checkbox
+                                checked={isInComparison}
+                                onCheckedChange={() =>
+                                  onToggleComparison(combo)
+                                }
+                                disabled={
+                                  !isInComparison &&
+                                  comparisonCombos.length >= 3
+                                }
+                                className="bg-background"
+                              />
+                            </div>
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <p>إضافة للمقارنة</p>
+                          </TooltipContent>
+                        </Tooltip>
+                      </div>
+                    </div>
+                    <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
+                      {combo.description}
+                    </p>
+                    <div className="space-y-2">
+                      <div className="flex items-center justify-between text-sm bg-muted/50 p-2 rounded-md">
+                        <span className="text-muted-foreground">العنوان</span>
+                        <span className="font-medium font-mono text-xs bg-background px-2 py-0.5 rounded border">
+                          {combo.heading.name}
                         </span>
-                      )}
-                    </div>
-                    {isSelected && (
-                      <div className="h-2 w-2 rounded-full bg-primary animate-pulse" />
-                    )}
-                  </div>
-                  <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
-                    {combo.description}
-                  </p>
-                  <div className="space-y-2">
-                    <div className="flex items-center justify-between text-sm bg-muted/50 p-2 rounded-md">
-                      <span className="text-muted-foreground">العنوان</span>
-                      <span className="font-medium font-mono text-xs bg-background px-2 py-0.5 rounded border">
-                        {combo.heading.name}
-                      </span>
-                    </div>
-                    <div className="flex items-center justify-between text-sm bg-muted/50 p-2 rounded-md">
-                      <span className="text-muted-foreground">النص</span>
-                      <span className="font-medium font-mono text-xs bg-background px-2 py-0.5 rounded border">
-                        {combo.body.name}
-                      </span>
+                      </div>
+                      <div className="flex items-center justify-between text-sm bg-muted/50 p-2 rounded-md">
+                        <span className="text-muted-foreground">النص</span>
+                        <span className="font-medium font-mono text-xs bg-background px-2 py-0.5 rounded border">
+                          {combo.body.name}
+                        </span>
+                      </div>
                     </div>
                   </div>
+                  {!isSelected && (
+                    <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                  )}
                 </div>
-                {!isSelected && (
-                  <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-                )}
-              </div>
-            );
-          })}
+              );
+            })}
+          </TooltipProvider>
         </div>
       </div>
     </div>
