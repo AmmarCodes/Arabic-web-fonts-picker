@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { fonts } from "@/data/fonts";
 import { useFontLoader } from "@/hooks/use-font-loader";
 import { FontControls } from "./font-controls";
+import { ThemeToggle } from "./theme-toggle";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Check, Copy } from "lucide-react";
@@ -51,7 +52,10 @@ body { font-family: ${bodyFont.value}; }
 
   return (
     <div className="container mx-auto py-12 px-4 space-y-12 max-w-7xl">
-      <div className="text-center space-y-4">
+      <div className="text-center space-y-4 relative">
+        <div className="absolute top-0 left-0">
+          <ThemeToggle />
+        </div>
         <h1 className="text-5xl font-extrabold tracking-tight bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent pb-2">
           منسق الخطوط العربية
         </h1>
