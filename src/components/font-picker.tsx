@@ -175,7 +175,7 @@ body { font-family: ${bodyFont.value}; }
                     className="mt-8 border-r-4 border-primary/50 pr-6 py-2 text-xl md:text-2xl text-muted-foreground bg-muted/30"
                     style={{
                       fontFamily: headingFont.value,
-                      fontSize: `${headingSize * 0.5}px`,
+                      fontSize: `${bodySize * 1.2}px`,
                     }}
                     contentEditable
                     suppressContentEditableWarning
