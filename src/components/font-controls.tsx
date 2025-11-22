@@ -11,16 +11,19 @@ import {
 import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
 import { Slider } from "@/components/ui/slider";
+import { Checkbox } from "@/components/ui/checkbox";
 
 interface FontControlsProps {
   headingFont: Font;
   bodyFont: Font;
   headingSize: number;
   bodySize: number;
+  comparisonCombos: FontCombination[];
   onHeadingFontChange: (font: Font) => void;
   onBodyFontChange: (font: Font) => void;
   onHeadingSizeChange: (size: number) => void;
   onBodySizeChange: (size: number) => void;
+  onToggleComparison: (combo: FontCombination) => void;
   onApplyCombination: (combo: FontCombination) => void;
 }
 
@@ -29,10 +32,12 @@ export function FontControls({
   bodyFont,
   headingSize,
   bodySize,
+  comparisonCombos,
   onHeadingFontChange,
   onBodyFontChange,
   onHeadingSizeChange,
   onBodySizeChange,
+  onToggleComparison,
   onApplyCombination,
 }: FontControlsProps) {
   return (
@@ -129,18 +134,33 @@ export function FontControls({
             const isSelected =
               combo.heading.name === headingFont.name &&
               combo.body.name === bodyFont.name;
+            const isInComparison = comparisonCombos.some(
+              (c) =>
+                c.heading.name === combo.heading.name &&
+                c.body.name === combo.body.name
+            );
 
             return (
               <div
                 key={combo.name}
                 className={cn(
-                  "group relative overflow-hidden rounded-xl border bg-card text-card-foreground shadow-sm transition-all hover:shadow-md hover:border-primary/50 cursor-pointer",
+                  "group relative overflow-hidden rounded-xl border bg-card text-card-foreground shadow-sm transition-all hover:shadow-md hover:border-primary/50",
                   isSelected &&
                     "border-primary ring-1 ring-primary shadow-md bg-primary/5"
                 )}
-                onClick={() => onApplyCombination(combo)}
               >
-                <div className="p-4">
+                <div className="absolute top-3 left-3 z-10">
+                  <Checkbox
+                    checked={isInComparison}
+                    onCheckedChange={() => onToggleComparison(combo)}
+                    disabled={!isInComparison && comparisonCombos.length >= 3}
+                    className="bg-background"
+                  />
+                </div>
+                <div
+                  className="p-4 cursor-pointer"
+                  onClick={() => onApplyCombination(combo)}
+                >
                   <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center gap-2">
                       <h3
