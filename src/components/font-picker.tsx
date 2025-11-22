@@ -44,6 +44,7 @@ body { font-family: ${bodyFont.value}; }
     subheading: "جماليات الحروف العربية وتنوعها",
     paragraph:
       "يعتبر الخط العربي من أبرز الفنون التي تميزت بها الحضارة العربية والإسلامية. يعتمد هذا الفن على جماليات الحروف العربية وقابليتها للتشكيل والمد والرجع. تتنوع الخطوط العربية بين الكوفي والنسخ والرقعة والديواني والثلث، ولكل منها استخداماته وجمالياته الخاصة.",
+    poem: "إِنَّ الَّـذي مَلَأَ اللّـغاتِ مَحـاسِناً .. جَعَلَ الجَمالَ وَسَرَّهُ في الضّادِ",
   };
 
   return (
@@ -108,6 +109,16 @@ body { font-family: ${bodyFont.value}; }
               <Separator className="bg-border/50" />
 
               <div className="space-y-6">
+                <blockquote
+                  className="mt-8 border-r-4 border-primary/50 pr-6 py-2 text-xl md:text-2xl text-muted-foreground bg-muted/30"
+                  style={{ fontFamily: headingFont.value }}
+                  contentEditable
+                  suppressContentEditableWarning
+                  dir="rtl"
+                >
+                  {previewText.poem}
+                </blockquote>
+
                 <p
                   className="text-lg md:text-xl leading-relaxed text-foreground/80 max-w-3xl ml-auto"
                   style={{ fontFamily: bodyFont.value }}
