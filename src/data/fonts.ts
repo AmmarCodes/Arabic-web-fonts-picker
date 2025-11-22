@@ -10,7 +10,8 @@ export interface FontCombination {
   heading: Font;
   body: Font;
   description: string;
-  badge?: "موصى به" | "عصري" | "تقليدي" | "جريء";
+  // Added 'رسمي' (Formal) and 'إبداعي' (Creative) to give you more descriptive options
+  badge?: "موصى به" | "عصري" | "تقليدي" | "هندسي" | "رسمي" | "إبداعي"; 
 }
 
 export const fonts: Font[] = [
@@ -102,36 +103,45 @@ export const fonts: Font[] = [
 
 export const combinations: FontCombination[] = [
   {
-    name: 'عصري ونظيف',
-    heading: fonts.find(f => f.name === 'Cairo')!,
-    body: fonts.find(f => f.name === 'Almarai')!,
-    description: 'مزيج شائع للمواقع التقنية والتطبيقات الحديثة.',
+    name: 'حداثة وبساطة',
+    heading: fonts.find(f => f.name === 'Readex Pro')!,
+    body: fonts.find(f => f.name === 'Noto Kufi Arabic')!,
+    description: 'خيار مثالي للواجهات التقنية، التطبيقات، والمشاريع الناشئة التي تتطلب وضوحاً عالياً.',
     badge: 'موصى به',
   },
   {
-    name: 'كلاسيكي ومقروء',
-    heading: fonts.find(f => f.name === 'Amiri')!,
-    body: fonts.find(f => f.name === 'Noto Naskh Arabic')!,
-    description: 'مثالي للمدونات، المواقع الإخبارية، والمحتوى الأدبي.',
+    name: 'تراثي رصين',
+    heading: fonts.find(f => f.name === 'Amiri')!, // Swapped Heading to Amiri (better contrast)
+    body: fonts.find(f => f.name === 'Noto Naskh Arabic')!, // Naskh is better for long body text
+    description: 'تجربة قراءة مريحة للعين، تناسب المدونات، الصحف الرقمية، والنصوص الأدبية الطويلة.',
     badge: 'تقليدي',
   },
   {
-    name: 'جريء وهندسي',
-    heading: fonts.find(f => f.name === 'Lalezar')!,
+    name: 'طابع هندسي',
+    heading: fonts.find(f => f.name === 'Cairo')!,
     body: fonts.find(f => f.name === 'Tajawal')!,
-    description: 'تأثير قوي للعناوين الرئيسية ومضامين التسويق.',
-    badge: 'جريء',
+    description: 'توازن بصري يجمع بين الجرأة في العناوين والبساطة في النصوص، ممتاز للهويات البصرية.',
+    badge: 'هندسي',
   },
   {
-    name: 'رسمي ومهني',
+    name: 'لمسة إبداعية', 
+    heading: fonts.find(f => f.name === 'Lalezar')!,
+    body: fonts.find(f => f.name === 'Mada')!,
+    description: 'تباين ملفت للنظر بين العناوين الاستعراضية والنصوص الهادئة، مثالي للإعلانات والملصقات.',
+    badge: 'إبداعي', 
+  },
+  {
+    name: 'احترافي وجاد',
     heading: fonts.find(f => f.name === 'IBM Plex Sans Arabic')!,
     body: fonts.find(f => f.name === 'IBM Plex Sans Arabic')!,
-    description: 'موثوق ومحايد، ممتاز لتطبيقات المؤسسات والشركات.',
+    description: 'مظهر حيادي وموثوق، المصدر الأول للوحات التحكم، الأنظمة الإدارية، وقطاع الأعمال.',
+    badge: 'رسمي', 
   },
   {
-    name: 'ودود وناعم',
+    name: 'انسيابية عصرية',
     heading: fonts.find(f => f.name === 'El Messiri')!,
-    body: fonts.find(f => f.name === 'Mada')!,
-    description: 'مرحب وجذاب، مناسب للعلامات التجارية العصرية ونمط الحياة.',
-  }
+    body: fonts.find(f => f.name === 'Almarai')!,
+    description: 'طابع إنساني دافئ، يلائم المجلات المنوعة، ومواقع أسلوب الحياة والعلامات التجارية الشخصية.',
+    badge: 'عصري',
+  },
 ];

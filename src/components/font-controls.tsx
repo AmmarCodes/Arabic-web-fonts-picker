@@ -179,6 +179,29 @@ export function FontControls({
                   >
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center gap-2">
+                        <Tooltip>
+                          <TooltipTrigger asChild>
+                            <div
+                              onClick={(e) => e.stopPropagation()}
+                              className="flex items-center"
+                            >
+                              <Checkbox
+                                checked={isInComparison}
+                                onCheckedChange={() =>
+                                  onToggleComparison(combo)
+                                }
+                                disabled={
+                                  !isInComparison &&
+                                  comparisonCombos.length >= 3
+                                }
+                                className="bg-background"
+                              />
+                            </div>
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <p>أضف للمقارنة</p>
+                          </TooltipContent>
+                        </Tooltip>
                         <h3
                           className={cn(
                             "font-bold text-lg transition-colors",
@@ -194,13 +217,17 @@ export function FontControls({
                             className={cn(
                               "text-xs px-2 py-0.5 rounded-full font-medium",
                               combo.badge === "موصى به" &&
-                                "bg-primary/10 text-primary",
+                                "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
                               combo.badge === "عصري" &&
                                 "bg-blue-500/10 text-blue-600 dark:text-blue-400",
                               combo.badge === "تقليدي" &&
                                 "bg-amber-500/10 text-amber-600 dark:text-amber-400",
-                              combo.badge === "جريء" &&
-                                "bg-purple-500/10 text-purple-600 dark:text-purple-400"
+                              combo.badge === "هندسي" &&
+                                "bg-purple-500/10 text-purple-600 dark:text-purple-400",
+                              combo.badge === "رسمي" &&
+                                "bg-lime-500/10 text-lime-600 dark:text-lime-400",
+                              combo.badge === "إبداعي" &&
+                                "bg-cyan-500/10 text-cyan-600 dark:text-cyan-400"
                             )}
                           >
                             {combo.badge}
@@ -211,26 +238,6 @@ export function FontControls({
                         {isSelected && (
                           <div className="h-2 w-2 rounded-full bg-primary animate-pulse" />
                         )}
-                        <Tooltip>
-                          <TooltipTrigger asChild>
-                            <div onClick={(e) => e.stopPropagation()}>
-                              <Checkbox
-                                checked={isInComparison}
-                                onCheckedChange={() =>
-                                  onToggleComparison(combo)
-                                }
-                                disabled={
-                                  !isInComparison &&
-                                  comparisonCombos.length >= 3
-                                }
-                                className="bg-background"
-                              />
-                            </div>
-                          </TooltipTrigger>
-                          <TooltipContent>
-                            <p>إضافة للمقارنة</p>
-                          </TooltipContent>
-                        </Tooltip>
                       </div>
                     </div>
                     <p className="text-sm text-muted-foreground mb-4 line-clamp-2">

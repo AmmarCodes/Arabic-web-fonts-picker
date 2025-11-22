@@ -227,9 +227,14 @@ body { font-family: ${bodyFont.value}; }
 
         <footer className="text-center text-muted-foreground py-8 border-t">
           <p>
-            تم التطوير بواسطة{" "}
-            <a href="#" className="underline hover:text-primary">
-              عمار
+            طوره{" "}
+            <a
+              href="https://ammar.codes"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-primary"
+            >
+              عمار العقاد
             </a>
           </p>
         </footer>
