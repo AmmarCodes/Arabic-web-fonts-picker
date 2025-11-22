@@ -101,33 +101,33 @@ export const fonts: Font[] = [
 
 export const combinations: FontCombination[] = [
   {
-    name: 'Modern & Clean',
+    name: 'عصري ونظيف',
     heading: fonts.find(f => f.name === 'Cairo')!,
     body: fonts.find(f => f.name === 'Almarai')!,
-    description: 'A popular combination for modern SaaS and tech websites.',
+    description: 'مزيج شائع للمواقع التقنية والشركات الناشئة الحديثة.',
   },
   {
-    name: 'Classic & Readable',
+    name: 'كلاسيكي ومقروء',
     heading: fonts.find(f => f.name === 'Amiri')!,
     body: fonts.find(f => f.name === 'Noto Naskh Arabic')!,
-    description: 'Perfect for blogs, news sites, and literary content.',
+    description: 'مثالي للمدونات، المواقع الإخبارية، والمحتوى الأدبي.',
   },
   {
-    name: 'Bold & Geometric',
+    name: 'جريء وهندسي',
     heading: fonts.find(f => f.name === 'Lalezar')!,
     body: fonts.find(f => f.name === 'Tajawal')!,
-    description: 'High impact for marketing pages and headlines.',
+    description: 'تأثير قوي للعناوين الرئيسية وصفحات التسويق.',
   },
   {
-    name: 'Corporate & Professional',
+    name: 'رسمي ومهني',
     heading: fonts.find(f => f.name === 'IBM Plex Sans Arabic')!,
     body: fonts.find(f => f.name === 'IBM Plex Sans Arabic')!,
-    description: 'Reliable and neutral, great for enterprise applications.',
+    description: 'موثوق ومحايد، ممتاز لتطبيقات المؤسسات والشركات.',
   },
   {
-    name: 'Friendly & Soft',
+    name: 'ودود وناعم',
     heading: fonts.find(f => f.name === 'El Messiri')!,
     body: fonts.find(f => f.name === 'Mada')!,
-    description: 'Welcoming and approachable, suitable for lifestyle brands.',
+    description: 'مرحب وجذاب، مناسب للعلامات التجارية العصرية ونمط الحياة.',
   }
 ];
