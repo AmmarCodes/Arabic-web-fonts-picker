@@ -159,6 +159,15 @@ body { font-family: ${bodyFont.value}; }
           </div>
         </div>
       </div>
+
+      <footer className="text-center text-muted-foreground py-8 border-t">
+        <p>
+          تم التطوير بواسطة{" "}
+          <a href="#" className="underline hover:text-primary">
+            عمار
+          </a>
+        </p>
+      </footer>
     </div>
   );
 }
