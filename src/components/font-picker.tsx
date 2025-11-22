@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { fonts, combinations } from "@/data/fonts";
+import { fonts } from "@/data/fonts";
 import { useFontLoader } from "@/hooks/use-font-loader";
 import { FontControls } from "./font-controls";
 import { Card } from "@/components/ui/card";

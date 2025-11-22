@@ -1,4 +1,5 @@
-import { Font, FontCombination, combinations, fonts } from "@/data/fonts";
+import { combinations, fonts } from "@/data/fonts";
+import type { Font, FontCombination } from "@/data/fonts";
 import {
   Select,
   SelectContent,
@@ -40,7 +41,7 @@ export function FontControls({
               }}
             >
               <SelectTrigger>
-                <SelectValue placeholder="Select heading font" />
+                <SelectValue />
               </SelectTrigger>
               <SelectContent>
                 {fonts.map((font) => (
@@ -62,7 +63,7 @@ export function FontControls({
               }}
             >
               <SelectTrigger>
-                <SelectValue placeholder="Select body font" />
+                <SelectValue />
               </SelectTrigger>
               <SelectContent>
                 {fonts.map((font) => (
@@ -78,38 +79,39 @@ export function FontControls({
 
       <div className="space-y-4">
         <h2 className="text-xl font-semibold">Popular Combinations</h2>
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-4 grid-cols-1">
           {combinations.map((combo) => (
-            <Card
+            <div
               key={combo.name}
-              className="p-4 cursor-pointer hover:border-primary transition-colors"
+              className="group relative overflow-hidden rounded-xl border bg-card text-card-foreground shadow-sm transition-all hover:shadow-md hover:border-primary/50 cursor-pointer"
               onClick={() => onApplyCombination(combo)}
             >
-              <h3 className="font-bold text-lg">{combo.name}</h3>
-              <p className="text-sm text-muted-foreground mb-3">
-                {combo.description}
-              </p>
-              <div className="space-y-1 text-sm bg-muted p-2 rounded">
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Heading:</span>
-                  <span className="font-medium">{combo.heading.name}</span>
+              <div className="p-4">
+                <div className="flex items-center justify-between mb-2">
+                  <h3 className="font-bold text-lg group-hover:text-primary transition-colors">
+                    {combo.name}
+                  </h3>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Body:</span>
-                  <span className="font-medium">{combo.body.name}</span>
+                <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
+                  {combo.description}
+                </p>
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between text-sm bg-muted/50 p-2 rounded-md">
+                    <span className="text-muted-foreground">Heading</span>
+                    <span className="font-medium font-mono text-xs bg-background px-2 py-0.5 rounded border">
+                      {combo.heading.name}
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between text-sm bg-muted/50 p-2 rounded-md">
+                    <span className="text-muted-foreground">Body</span>
+                    <span className="font-medium font-mono text-xs bg-background px-2 py-0.5 rounded border">
+                      {combo.body.name}
+                    </span>
+                  </div>
                 </div>
               </div>
-              <Button
-                variant="outline"
-                className="w-full mt-4"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  onApplyCombination(combo);
-                }}
-              >
-                Apply
-              </Button>
-            </Card>
+              <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+            </div>
           ))}
         </div>
       </div>
