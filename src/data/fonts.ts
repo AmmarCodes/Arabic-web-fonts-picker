@@ -10,6 +10,7 @@ export interface FontCombination {
   heading: Font;
   body: Font;
   description: string;
+  badge?: "موصى به" | "عصري" | "تقليدي" | "جريء";
 }
 
 export const fonts: Font[] = [
@@ -104,19 +105,22 @@ export const combinations: FontCombination[] = [
     name: 'عصري ونظيف',
     heading: fonts.find(f => f.name === 'Cairo')!,
     body: fonts.find(f => f.name === 'Almarai')!,
-    description: 'مزيج شائع للمواقع التقنية والشركات الناشئة الحديثة.',
+    description: 'مزيج شائع للمواقع التقنية والتطبيقات الحديثة.',
+    badge: 'موصى به',
   },
   {
     name: 'كلاسيكي ومقروء',
     heading: fonts.find(f => f.name === 'Amiri')!,
     body: fonts.find(f => f.name === 'Noto Naskh Arabic')!,
     description: 'مثالي للمدونات، المواقع الإخبارية، والمحتوى الأدبي.',
+    badge: 'تقليدي',
   },
   {
-    name: 'عريض وهندسي',
+    name: 'جريء وهندسي',
     heading: fonts.find(f => f.name === 'Lalezar')!,
     body: fonts.find(f => f.name === 'Tajawal')!,
-    description: 'تأثير قوي للعناوين الرئيسية وصفحات التسويق.',
+    description: 'تأثير قوي للعناوين الرئيسية ومضامين التسويق.',
+    badge: 'جريء',
   },
   {
     name: 'رسمي ومهني',

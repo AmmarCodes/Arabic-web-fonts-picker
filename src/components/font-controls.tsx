@@ -142,14 +142,35 @@ export function FontControls({
               >
                 <div className="p-4">
                   <div className="flex items-center justify-between mb-2">
-                    <h3
-                      className={cn(
-                        "font-bold text-lg transition-colors",
-                        isSelected ? "text-primary" : "group-hover:text-primary"
+                    <div className="flex items-center gap-2">
+                      <h3
+                        className={cn(
+                          "font-bold text-lg transition-colors",
+                          isSelected
+                            ? "text-primary"
+                            : "group-hover:text-primary"
+                        )}
+                      >
+                        {combo.name}
+                      </h3>
+                      {combo.badge && (
+                        <span
+                          className={cn(
+                            "text-xs px-2 py-0.5 rounded-full font-medium",
+                            combo.badge === "موصى به" &&
+                              "bg-primary/10 text-primary",
+                            combo.badge === "عصري" &&
+                              "bg-blue-500/10 text-blue-600 dark:text-blue-400",
+                            combo.badge === "تقليدي" &&
+                              "bg-amber-500/10 text-amber-600 dark:text-amber-400",
+                            combo.badge === "جريء" &&
+                              "bg-purple-500/10 text-purple-600 dark:text-purple-400"
+                          )}
+                        >
+                          {combo.badge}
+                        </span>
                       )}
-                    >
-                      {combo.name}
-                    </h3>
+                    </div>
                     {isSelected && (
                       <div className="h-2 w-2 rounded-full bg-primary animate-pulse" />
                     )}
