@@ -10,20 +10,29 @@ import {
 } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
+import { Slider } from "@/components/ui/slider";
 
 interface FontControlsProps {
   headingFont: Font;
   bodyFont: Font;
+  headingSize: number;
+  bodySize: number;
   onHeadingFontChange: (font: Font) => void;
   onBodyFontChange: (font: Font) => void;
+  onHeadingSizeChange: (size: number) => void;
+  onBodySizeChange: (size: number) => void;
   onApplyCombination: (combo: FontCombination) => void;
 }
 
 export function FontControls({
   headingFont,
   bodyFont,
+  headingSize,
+  bodySize,
   onHeadingFontChange,
   onBodyFontChange,
+  onHeadingSizeChange,
+  onBodySizeChange,
   onApplyCombination,
 }: FontControlsProps) {
   return (
@@ -73,6 +82,42 @@ export function FontControls({
                 ))}
               </SelectContent>
             </Select>
+          </div>
+        </div>
+
+        <div className="pt-4 border-t space-y-4">
+          <div className="space-y-2">
+            <div className="flex items-center justify-between">
+              <Label>حجم العناوين</Label>
+              <span className="text-sm text-muted-foreground">
+                {headingSize}px
+              </span>
+            </div>
+            <Slider
+              value={[headingSize]}
+              onValueChange={(value) => onHeadingSizeChange(value[0])}
+              min={24}
+              max={96}
+              step={1}
+              className="w-full"
+            />
+          </div>
+
+          <div className="space-y-2">
+            <div className="flex items-center justify-between">
+              <Label>حجم النصوص</Label>
+              <span className="text-sm text-muted-foreground">
+                {bodySize}px
+              </span>
+            </div>
+            <Slider
+              value={[bodySize]}
+              onValueChange={(value) => onBodySizeChange(value[0])}
+              min={12}
+              max={32}
+              step={1}
+              className="w-full"
+            />
           </div>
         </div>
       </Card>

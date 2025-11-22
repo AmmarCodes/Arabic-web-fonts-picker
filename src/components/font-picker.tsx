@@ -15,6 +15,8 @@ export function FontPicker() {
     const saved = localStorage.getItem("bodyFont");
     return saved ? fonts.find((f) => f.name === saved) || fonts[2] : fonts[2];
   });
+  const [headingSize, setHeadingSize] = useState(48);
+  const [bodySize, setBodySize] = useState(18);
   const [copied, setCopied] = useState(false);
 
   useFontLoader(fonts);
@@ -88,7 +90,10 @@ body { font-family: ${bodyFont.value}; }
               <div className="space-y-6">
                 <h1
                   className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-foreground"
-                  style={{ fontFamily: headingFont.value }}
+                  style={{
+                    fontFamily: headingFont.value,
+                    fontSize: `${headingSize}px`,
+                  }}
                   contentEditable
                   suppressContentEditableWarning
                   dir="rtl"
@@ -97,7 +102,10 @@ body { font-family: ${bodyFont.value}; }
                 </h1>
                 <h2
                   className="text-2xl md:text-3xl text-muted-foreground font-medium"
-                  style={{ fontFamily: headingFont.value }}
+                  style={{
+                    fontFamily: headingFont.value,
+                    fontSize: `${headingSize * 0.6}px`,
+                  }}
                   contentEditable
                   suppressContentEditableWarning
                   dir="rtl"
@@ -111,7 +119,10 @@ body { font-family: ${bodyFont.value}; }
               <div className="space-y-6">
                 <blockquote
                   className="mt-8 border-r-4 border-primary/50 pr-6 py-2 text-xl md:text-2xl text-muted-foreground bg-muted/30"
-                  style={{ fontFamily: headingFont.value }}
+                  style={{
+                    fontFamily: headingFont.value,
+                    fontSize: `${headingSize * 0.5}px`,
+                  }}
                   contentEditable
                   suppressContentEditableWarning
                   dir="rtl"
@@ -121,7 +132,10 @@ body { font-family: ${bodyFont.value}; }
 
                 <p
                   className="text-lg md:text-xl leading-relaxed text-foreground/80 max-w-3xl ml-auto"
-                  style={{ fontFamily: bodyFont.value }}
+                  style={{
+                    fontFamily: bodyFont.value,
+                    fontSize: `${bodySize}px`,
+                  }}
                   contentEditable
                   suppressContentEditableWarning
                   dir="rtl"
@@ -130,7 +144,10 @@ body { font-family: ${bodyFont.value}; }
                 </p>
                 <p
                   className="text-lg md:text-xl leading-relaxed text-foreground/80 max-w-3xl ml-auto"
-                  style={{ fontFamily: bodyFont.value }}
+                  style={{
+                    fontFamily: bodyFont.value,
+                    fontSize: `${bodySize}px`,
+                  }}
                   contentEditable
                   suppressContentEditableWarning
                   dir="rtl"
@@ -149,8 +166,12 @@ body { font-family: ${bodyFont.value}; }
             <FontControls
               headingFont={headingFont}
               bodyFont={bodyFont}
+              headingSize={headingSize}
+              bodySize={bodySize}
               onHeadingFontChange={setHeadingFont}
               onBodyFontChange={setBodyFont}
+              onHeadingSizeChange={setHeadingSize}
+              onBodySizeChange={setBodySize}
               onApplyCombination={(combo) => {
                 setHeadingFont(combo.heading);
                 setBodyFont(combo.body);

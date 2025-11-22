@@ -113,7 +113,7 @@ export const combinations: FontCombination[] = [
     description: 'مثالي للمدونات، المواقع الإخبارية، والمحتوى الأدبي.',
   },
   {
-    name: 'جريء وهندسي',
+    name: 'عريض وهندسي',
     heading: fonts.find(f => f.name === 'Lalezar')!,
     body: fonts.find(f => f.name === 'Tajawal')!,
     description: 'تأثير قوي للعناوين الرئيسية وصفحات التسويق.',
