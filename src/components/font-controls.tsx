@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import { combinations, fonts } from "@/data/fonts";
 import type { Font, FontCombination } from "@/data/fonts";
 import {
@@ -79,39 +80,59 @@ export function FontControls({
       <div className="space-y-4">
         <h2 className="text-xl font-semibold">توليفات شائعة</h2>
         <div className="grid gap-4 grid-cols-1">
-          {combinations.map((combo) => (
-            <div
-              key={combo.name}
-              className="group relative overflow-hidden rounded-xl border bg-card text-card-foreground shadow-sm transition-all hover:shadow-md hover:border-primary/50 cursor-pointer"
-              onClick={() => onApplyCombination(combo)}
-            >
-              <div className="p-4">
-                <div className="flex items-center justify-between mb-2">
-                  <h3 className="font-bold text-lg group-hover:text-primary transition-colors">
-                    {combo.name}
-                  </h3>
-                </div>
-                <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
-                  {combo.description}
-                </p>
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between text-sm bg-muted/50 p-2 rounded-md">
-                    <span className="text-muted-foreground">العنوان</span>
-                    <span className="font-medium font-mono text-xs bg-background px-2 py-0.5 rounded border">
-                      {combo.heading.name}
-                    </span>
+          {combinations.map((combo) => {
+            const isSelected =
+              combo.heading.name === headingFont.name &&
+              combo.body.name === bodyFont.name;
+
+            return (
+              <div
+                key={combo.name}
+                className={cn(
+                  "group relative overflow-hidden rounded-xl border bg-card text-card-foreground shadow-sm transition-all hover:shadow-md hover:border-primary/50 cursor-pointer",
+                  isSelected &&
+                    "border-primary ring-1 ring-primary shadow-md bg-primary/5"
+                )}
+                onClick={() => onApplyCombination(combo)}
+              >
+                <div className="p-4">
+                  <div className="flex items-center justify-between mb-2">
+                    <h3
+                      className={cn(
+                        "font-bold text-lg transition-colors",
+                        isSelected ? "text-primary" : "group-hover:text-primary"
+                      )}
+                    >
+                      {combo.name}
+                    </h3>
+                    {isSelected && (
+                      <div className="h-2 w-2 rounded-full bg-primary animate-pulse" />
+                    )}
                   </div>
-                  <div className="flex items-center justify-between text-sm bg-muted/50 p-2 rounded-md">
-                    <span className="text-muted-foreground">النص</span>
-                    <span className="font-medium font-mono text-xs bg-background px-2 py-0.5 rounded border">
-                      {combo.body.name}
-                    </span>
+                  <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
+                    {combo.description}
+                  </p>
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between text-sm bg-muted/50 p-2 rounded-md">
+                      <span className="text-muted-foreground">العنوان</span>
+                      <span className="font-medium font-mono text-xs bg-background px-2 py-0.5 rounded border">
+                        {combo.heading.name}
+                      </span>
+                    </div>
+                    <div className="flex items-center justify-between text-sm bg-muted/50 p-2 rounded-md">
+                      <span className="text-muted-foreground">النص</span>
+                      <span className="font-medium font-mono text-xs bg-background px-2 py-0.5 rounded border">
+                        {combo.body.name}
+                      </span>
+                    </div>
                   </div>
                 </div>
+                {!isSelected && (
+                  <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                )}
               </div>
-              <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </div>
