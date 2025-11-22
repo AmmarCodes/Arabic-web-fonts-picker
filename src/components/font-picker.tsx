@@ -7,7 +7,7 @@ import { ThemeToggle } from "./theme-toggle";
 import { ComparisonView } from "./comparison-view";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { Check, Copy, Eye } from "lucide-react";
+import { Check, Copy } from "lucide-react";
 
 export function FontPicker() {
   const [headingFont, setHeadingFont] = useState(() => {
