@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { fonts } from "@/data/fonts";
 import { useFontLoader } from "@/hooks/use-font-loader";
 import { FontControls } from "./font-controls";
@@ -7,11 +7,22 @@ import { Separator } from "@/components/ui/separator";
 import { Check, Copy } from "lucide-react";
 
 export function FontPicker() {
-  const [headingFont, setHeadingFont] = useState(fonts[0]);
-  const [bodyFont, setBodyFont] = useState(fonts[2]); // Almarai as default body
+  const [headingFont, setHeadingFont] = useState(() => {
+    const saved = localStorage.getItem("headingFont");
+    return saved ? fonts.find((f) => f.name === saved) || fonts[0] : fonts[0];
+  });
+  const [bodyFont, setBodyFont] = useState(() => {
+    const saved = localStorage.getItem("bodyFont");
+    return saved ? fonts.find((f) => f.name === saved) || fonts[2] : fonts[2];
+  });
   const [copied, setCopied] = useState(false);
 
   useFontLoader(fonts);
+
+  useEffect(() => {
+    localStorage.setItem("headingFont", headingFont.name);
+    localStorage.setItem("bodyFont", bodyFont.name);
+  }, [headingFont, bodyFont]);
 
   const handleCopyCSS = () => {
     const css = `
