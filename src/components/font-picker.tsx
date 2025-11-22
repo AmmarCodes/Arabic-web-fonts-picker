@@ -39,11 +39,11 @@ body { font-family: ${bodyFont.value}; }
     <div className="container mx-auto py-12 px-4 space-y-12 max-w-7xl">
       <div className="text-center space-y-4">
         <h1 className="text-5xl font-extrabold tracking-tight bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent pb-2">
-          Arabic Font Picker
+          منسق الخطوط العربية
         </h1>
         <p className="text-muted-foreground text-xl max-w-2xl mx-auto">
-          Find the perfect font combination for your next project with our
-          curated collection of Google Fonts.
+          اكتشف التوليفة المثالية لمشروعك القادم من مجموعة مختارة من خطوط جوجل
+          العربية.
         </p>
       </div>
 
@@ -51,7 +51,7 @@ body { font-family: ${bodyFont.value}; }
         <div className="order-2 lg:order-1 relative group">
           <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition duration-500" />
           <div className="relative rounded-xl border bg-card text-card-foreground shadow-xl overflow-hidden">
-            <div className="absolute top-4 right-4 z-10">
+            <div className="absolute top-4 left-4 z-10">
               <Button
                 variant="secondary"
                 size="sm"
@@ -60,13 +60,13 @@ body { font-family: ${bodyFont.value}; }
               >
                 {copied ? (
                   <>
-                    <Check className="mr-2 h-4 w-4 text-green-500" />
-                    Copied
+                    <Check className="ml-2 h-4 w-4 text-green-500" />
+                    تم النسخ
                   </>
                 ) : (
                   <>
-                    <Copy className="mr-2 h-4 w-4" />
-                    Copy CSS
+                    <Copy className="ml-2 h-4 w-4" />
+                    نسخ CSS
                   </>
                 )}
               </Button>

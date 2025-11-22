@@ -28,10 +28,10 @@ export function FontControls({
   return (
     <div className="space-y-6">
       <Card className="p-6 space-y-4">
-        <h2 className="text-xl font-semibold mb-4">Custom Selection</h2>
+        <h2 className="text-xl font-semibold mb-4">تخصيص الخطوط</h2>
         <div className="grid gap-4 md:grid-cols-2">
           <div className="space-y-2">
-            <Label>Heading Font</Label>
+            <Label>خط العناوين</Label>
             <Select
               value={headingFont.name}
               onValueChange={(val) => {
@@ -53,7 +53,7 @@ export function FontControls({
           </div>
 
           <div className="space-y-2">
-            <Label>Body Font</Label>
+            <Label>خط النصوص</Label>
             <Select
               value={bodyFont.name}
               onValueChange={(val) => {
@@ -77,7 +77,7 @@ export function FontControls({
       </Card>
 
       <div className="space-y-4">
-        <h2 className="text-xl font-semibold">Popular Combinations</h2>
+        <h2 className="text-xl font-semibold">توليفات شائعة</h2>
         <div className="grid gap-4 grid-cols-1">
           {combinations.map((combo) => (
             <div
@@ -96,13 +96,13 @@ export function FontControls({
                 </p>
                 <div className="space-y-2">
                   <div className="flex items-center justify-between text-sm bg-muted/50 p-2 rounded-md">
-                    <span className="text-muted-foreground">Heading</span>
+                    <span className="text-muted-foreground">العنوان</span>
                     <span className="font-medium font-mono text-xs bg-background px-2 py-0.5 rounded border">
                       {combo.heading.name}
                     </span>
                   </div>
                   <div className="flex items-center justify-between text-sm bg-muted/50 p-2 rounded-md">
-                    <span className="text-muted-foreground">Body</span>
+                    <span className="text-muted-foreground">النص</span>
                     <span className="font-medium font-mono text-xs bg-background px-2 py-0.5 rounded border">
                       {combo.body.name}
                     </span>
