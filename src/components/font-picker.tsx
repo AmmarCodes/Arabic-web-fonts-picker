@@ -93,10 +93,16 @@ body { font-family: ${bodyFont.value}; }
           <div className="absolute top-0 left-0">
             <ThemeToggle />
           </div>
-          <h1 className="from-primary to-primary/60 bg-linear-to-r bg-clip-text pb-2 text-5xl font-extrabold tracking-tight text-transparent">
+          <h1
+            className="relative inline-block pb-3 text-5xl font-extrabold tracking-tight text-slate-800 [text-shadow:0_1px_0_rgba(255,255,255,0.62)] before:absolute before:inset-x-8 before:-bottom-1.5 before:h-4 before:rounded-full before:bg-cyan-300/15 before:blur-lg before:content-[''] after:absolute after:inset-x-8 after:bottom-0 after:h-0.5 after:rounded-full after:bg-cyan-500/60 after:content-[''] dark:text-slate-100 dark:[text-shadow:0_1px_0_rgba(15,23,42,0.75)] dark:before:bg-cyan-400/15 dark:after:bg-cyan-300/65"
+            style={{ fontFamily: '"Tajawal", sans-serif' }}
+          >
             منسق الخطوط العربية
           </h1>
-          <p className="text-muted-foreground mx-auto max-w-2xl text-xl">
+          <p
+            className="text-muted-foreground mx-auto max-w-2xl text-xl"
+            style={{ fontFamily: '"Vazirmatn", sans-serif' }}
+          >
             اكتشف التوليفة المثالية لمشروعك القادم من مجموعة مختارة من خطوط جوجل
             العربية.
           </p>
@@ -118,7 +124,7 @@ body { font-family: ${bodyFont.value}; }
                 >
                   {copied ? (
                     <>
-                      <Check className="ml-2 h-4 w-4 text-green-500" />
+                      <Check className="text-primary ml-2 h-4 w-4" />
                       تم النسخ
                     </>
                   ) : (
@@ -130,7 +136,7 @@ body { font-family: ${bodyFont.value}; }
                 </Button>
               </div>
 
-              <div className="flex min-h-150 flex-col justify-center space-y-10 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] bg-size-[16px_16px] p-8 md:p-16 dark:bg-[radial-gradient(#1f2937_1px,transparent_1px)]">
+              <div className="flex min-h-150 flex-col justify-center space-y-10 bg-[radial-gradient(#d7e3f0_1px,transparent_1px)] bg-size-[16px_16px] p-8 md:p-16 dark:bg-[radial-gradient(#243447_1px,transparent_1px)]">
                 <div className="space-y-6">
                   <h2
                     className="text-foreground text-5xl leading-tight font-bold md:text-6xl lg:text-7xl"

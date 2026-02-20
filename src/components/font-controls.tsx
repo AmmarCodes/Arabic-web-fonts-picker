@@ -220,17 +220,17 @@ export function FontControls({
                             className={cn(
                               "rounded-full px-2 py-0.5 text-xs font-medium",
                               combo.badge === "موصى به" &&
-                                "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
+                                "bg-teal-500/30 text-teal-800",
                               combo.badge === "عصري" &&
-                                "bg-blue-500/10 text-blue-600 dark:text-blue-400",
+                                "bg-sky-500/20 text-sky-800 dark:text-sky-300",
                               combo.badge === "تقليدي" &&
-                                "bg-amber-500/10 text-amber-600 dark:text-amber-400",
+                                "bg-slate-500/30 text-slate-700 dark:text-slate-300",
                               combo.badge === "هندسي" &&
-                                "bg-purple-500/10 text-purple-600 dark:text-purple-400",
+                                "bg-indigo-500/20 text-indigo-800 dark:text-indigo-300",
                               combo.badge === "رسمي" &&
-                                "bg-lime-500/10 text-lime-600 dark:text-lime-400",
+                                "bg-teal-500/30 text-teal-800 dark:text-teal-300",
                               combo.badge === "إبداعي" &&
-                                "bg-cyan-500/10 text-cyan-600 dark:text-cyan-400",
+                                "bg-cyan-500/20 text-cyan-800 dark:text-cyan-300",
                             )}
                           >
                             {combo.badge}
