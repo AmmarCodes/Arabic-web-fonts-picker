@@ -155,13 +155,13 @@ body { font-family: ${bodyFont.value}; }
                   </h2>
                 </div>
 
-                <Separator className="bg-border/50" />
+                <Separator className="w-1/2!" />
 
                 <div className="space-y-6">
                   <blockquote
                     className="border-primary/50 text-muted-foreground bg-muted/30 mt-8 border-r-4 py-2 pr-6 text-xl md:text-2xl"
                     style={{
-                      fontFamily: headingFont.value,
+                      fontFamily: bodyFont.value,
                       fontSize: `${bodySize * 1.2}px`,
                     }}
                     contentEditable

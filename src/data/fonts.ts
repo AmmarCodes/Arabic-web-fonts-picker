@@ -15,15 +15,9 @@ export interface FontCombination {
 
 export const fonts: Font[] = [
   {
-    name: "Cairo",
-    value: '"Cairo", sans-serif',
-    url: "https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap",
-    category: "sans-serif",
-  },
-  {
-    name: "Tajawal",
-    value: '"Tajawal", sans-serif',
-    url: "https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap",
+    name: "Alexandria",
+    value: '"Alexandria", sans-serif',
+    url: "https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&display=swap",
     category: "sans-serif",
   },
   {
@@ -33,21 +27,9 @@ export const fonts: Font[] = [
     category: "sans-serif",
   },
   {
-    name: "IBM Plex Sans Arabic",
-    value: '"IBM Plex Sans Arabic", sans-serif',
-    url: "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap",
-    category: "sans-serif",
-  },
-  {
-    name: "Noto Kufi Arabic",
-    value: '"Noto Kufi Arabic", sans-serif',
-    url: "https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap",
-    category: "sans-serif",
-  },
-  {
-    name: "Noto Naskh Arabic",
-    value: '"Noto Naskh Arabic", serif',
-    url: "https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400..700&display=swap",
+    name: "Alyamama",
+    value: '"Alyamama", serif',
+    url: "https://fonts.googleapis.com/css2?family=Alyamama:wght@300..900&display=swap",
     category: "serif",
   },
   {
@@ -60,60 +42,6 @@ export const fonts: Font[] = [
     name: "Aref Ruqaa",
     value: '"Aref Ruqaa", serif',
     url: "https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&display=swap",
-    category: "serif",
-  },
-  {
-    name: "Lalezar",
-    value: '"Lalezar", display',
-    url: "https://fonts.googleapis.com/css2?family=Lalezar&display=swap",
-    category: "display",
-  },
-  {
-    name: "Rakkas",
-    value: '"Rakkas", display',
-    url: "https://fonts.googleapis.com/css2?family=Rakkas&display=swap",
-    category: "display",
-  },
-  {
-    name: "El Messiri",
-    value: '"El Messiri", sans-serif',
-    url: "https://fonts.googleapis.com/css2?family=El+Messiri:wght@400..700&display=swap",
-    category: "sans-serif",
-  },
-  {
-    name: "Mada",
-    value: '"Mada", sans-serif',
-    url: "https://fonts.googleapis.com/css2?family=Mada:wght@200..900&display=swap",
-    category: "sans-serif",
-  },
-  {
-    name: "Readex Pro",
-    value: '"Readex Pro", sans-serif',
-    url: "https://fonts.googleapis.com/css2?family=Readex+Pro:wght@160..700&display=swap",
-    category: "sans-serif",
-  },
-  {
-    name: "Alexandria",
-    value: '"Alexandria", sans-serif',
-    url: "https://fonts.googleapis.com/css2?family=Alexandria:wght@100..900&display=swap",
-    category: "sans-serif",
-  },
-  {
-    name: "Alyamama",
-    value: '"Alyamama", serif',
-    url: "https://fonts.googleapis.com/css2?family=Alyamama:wght@300..900&display=swap",
-    category: "serif",
-  },
-  {
-    name: "Amiri Quran",
-    value: '"Amiri Quran", serif',
-    url: "https://fonts.googleapis.com/css2?family=Amiri+Quran&display=swap",
-    category: "serif",
-  },
-  {
-    name: "Aref Ruqaa Ink",
-    value: '"Aref Ruqaa Ink", serif',
-    url: "https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink&display=swap",
     category: "serif",
   },
   {
@@ -135,6 +63,18 @@ export const fonts: Font[] = [
     category: "sans-serif",
   },
   {
+    name: "Cairo",
+    value: '"Cairo", sans-serif',
+    url: "https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap",
+    category: "sans-serif",
+  },
+  {
+    name: "El Messiri",
+    value: '"El Messiri", sans-serif',
+    url: "https://fonts.googleapis.com/css2?family=El+Messiri:wght@400..700&display=swap",
+    category: "sans-serif",
+  },
+  {
     name: "Fustat",
     value: '"Fustat", sans-serif',
     url: "https://fonts.googleapis.com/css2?family=Fustat:wght@200..800&display=swap",
@@ -153,10 +93,10 @@ export const fonts: Font[] = [
     category: "sans-serif",
   },
   {
-    name: "Katibeh",
-    value: '"Katibeh", display',
-    url: "https://fonts.googleapis.com/css2?family=Katibeh&display=swap",
-    category: "display",
+    name: "IBM Plex Sans Arabic",
+    value: '"IBM Plex Sans Arabic", sans-serif',
+    url: "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap",
+    category: "sans-serif",
   },
   {
     name: "Kufam",
@@ -189,6 +129,18 @@ export const fonts: Font[] = [
     category: "serif",
   },
   {
+    name: "Noto Kufi Arabic",
+    value: '"Noto Kufi Arabic", sans-serif',
+    url: "https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap",
+    category: "sans-serif",
+  },
+  {
+    name: "Noto Naskh Arabic",
+    value: '"Noto Naskh Arabic", serif',
+    url: "https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400..700&display=swap",
+    category: "serif",
+  },
+  {
     name: "Noto Sans Arabic",
     value: '"Noto Sans Arabic", sans-serif',
     url: "https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100..900&display=swap",
@@ -207,15 +159,21 @@ export const fonts: Font[] = [
     category: "handwriting",
   },
   {
-    name: "Reem Kufi",
-    value: '"Reem Kufi", sans-serif',
-    url: "https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400..700&display=swap",
+    name: "Rakkas",
+    value: '"Rakkas", display',
+    url: "https://fonts.googleapis.com/css2?family=Rakkas&display=swap",
+    category: "display",
+  },
+  {
+    name: "Readex Pro",
+    value: '"Readex Pro", sans-serif',
+    url: "https://fonts.googleapis.com/css2?family=Readex+Pro:wght@160..700&display=swap",
     category: "sans-serif",
   },
   {
-    name: "Reem Kufi Ink",
-    value: '"Reem Kufi Ink", sans-serif',
-    url: "https://fonts.googleapis.com/css2?family=Reem+Kufi+Ink&display=swap",
+    name: "Reem Kufi",
+    value: '"Reem Kufi", sans-serif',
+    url: "https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400..700&display=swap",
     category: "sans-serif",
   },
   {
@@ -225,16 +183,16 @@ export const fonts: Font[] = [
     category: "sans-serif",
   },
   {
-    name: "Ruwudu",
-    value: '"Ruwudu", serif',
-    url: "https://fonts.googleapis.com/css2?family=Ruwudu&display=swap",
-    category: "serif",
-  },
-  {
     name: "Scheherazade New",
     value: '"Scheherazade New", serif',
     url: "https://fonts.googleapis.com/css2?family=Scheherazade+New&display=swap",
     category: "serif",
+  },
+  {
+    name: "Tajawal",
+    value: '"Tajawal", sans-serif',
+    url: "https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap",
+    category: "sans-serif",
   },
   {
     name: "Vazirmatn",
@@ -252,59 +210,59 @@ export const fonts: Font[] = [
 
 export const combinations: FontCombination[] = [
   {
-    name: "حداثة وبساطة",
-    heading: fonts.find((f) => f.name === "Readex Pro")!,
-    body: fonts.find((f) => f.name === "Alexandria")!,
+    name: "توازن عملي",
+    heading: fonts.find((f) => f.name === "Tajawal")!,
+    body: fonts.find((f) => f.name === "Vazirmatn")!,
     description:
-      "خيار مثالي للواجهات التقنية، التطبيقات، والمشاريع الناشئة التي تتطلب وضوحاً عالياً.",
+      "يركز على راحة العين أثناء القراءة الطويلة بأسلوب طباعي حديث ومنظم.",
     badge: "موصى به",
   },
   {
-    name: "تراثي رصين",
-    heading: fonts.find((f) => f.name === "Amiri")!,
-    body: fonts.find((f) => f.name === "Noto Naskh Arabic")!,
+    name: "بساطة تقنية",
+    heading: fonts.find((f) => f.name === "IBM Plex Sans Arabic")!,
+    body: fonts.find((f) => f.name === "Noto Sans Arabic")!,
     description:
-      "تجربة قراءة مريحة للعين، تناسب المدونات، الصحف الرقمية، والنصوص الأدبية الطويلة.",
-    badge: "تقليدي",
-  },
-  {
-    name: "طابع هندسي",
-    heading: fonts.find((f) => f.name === "Cairo")!,
-    body: fonts.find((f) => f.name === "Tajawal")!,
-    description:
-      "توازن بصري يجمع بين الجرأة في العناوين والبساطة في النصوص، ممتاز للهويات البصرية.",
-    badge: "هندسي",
-  },
-  {
-    name: "لمسة إبداعية",
-    heading: fonts.find((f) => f.name === "Lalezar")!,
-    body: fonts.find((f) => f.name === "Mada")!,
-    description:
-      "تباين ملفت للنظر بين العناوين الاستعراضية والنصوص الهادئة، مثالي للإعلانات والملصقات.",
-    badge: "إبداعي",
+      "مزيج عالمي يضمن وضوحاً مثالياً وشاملاً عبر كافة الشاشات والمتصفحات.",
+    badge: "عصري",
   },
   {
     name: "احترافي وجاد",
     heading: fonts.find((f) => f.name === "IBM Plex Sans Arabic")!,
     body: fonts.find((f) => f.name === "IBM Plex Sans Arabic")!,
     description:
-      "مظهر حيادي وموثوق، المصدر الأول للوحات التحكم، الأنظمة الإدارية، وقطاع الأعمال.",
+      "تصميم تقني صارم وموثوق، مثالي للأنظمة الإدارية ولوحات التحكم البرمجية.",
     badge: "رسمي",
+  },
+  {
+    name: "هندسي متكامل",
+    heading: fonts.find((f) => f.name === "Cairo")!,
+    body: fonts.find((f) => f.name === "Tajawal")!,
+    description:
+      "توازن بصري فائق يعتمد على الزوايا الحادة، ممتاز للهويات البصرية الحديثة.",
+    badge: "هندسي",
   },
   {
     name: "انسيابية عصرية",
     heading: fonts.find((f) => f.name === "El Messiri")!,
     body: fonts.find((f) => f.name === "Almarai")!,
     description:
-      "طابع إنساني دافئ، يلائم المجلات المنوعة، ومواقع أسلوب الحياة والعلامات التجارية الشخصية.",
+      "يجمع بين فخامة الخطوط الليّنة ووضوح القراءة في المواقع والمجلات الرقمية.",
     badge: "عصري",
   },
   {
-    name: "أناقة كلاسيكية",
-    heading: fonts.find((f) => f.name === "Reem Kufi")!,
-    body: fonts.find((f) => f.name === "Vazirmatn")!,
+    name: "أناقة مطبوعة",
+    heading: fonts.find((f) => f.name === "Readex Pro")!,
+    body: fonts.find((f) => f.name === "Alyamama")!,
     description:
-      "تباين رائع بين أصالة الخط الكوفي في العناوين ووضوح الخطوط المعاصرة في النصوص الطويلة.",
+      "مزيج فريد يجمع بين قوة العناوين الهندسية ودفء النصوص الطباعية الكلاسيكية.",
+    badge: "عصري",
+  },
+  {
+    name: "تراثي رصين",
+    heading: fonts.find((f) => f.name === "Amiri")!,
+    body: fonts.find((f) => f.name === "Scheherazade New")!,
+    description:
+      "مزيج كلاسيكي فاخر يجسد أصالة الكتب الأدبية والمحتوى الفكري العريق.",
     badge: "تقليدي",
   },
   {
@@ -312,7 +270,23 @@ export const combinations: FontCombination[] = [
     heading: fonts.find((f) => f.name === "Aref Ruqaa")!,
     body: fonts.find((f) => f.name === "Markazi Text")!,
     description:
-      "مثالي للمدونات الشخصية، المجلات الثقافية، والمنصات التي تركز على المحتوى السردي والمقالات الطويلة.",
-    badge: "تقليدي",
+      "توليفة فنية بروح المخطوطات اليدوية، مخصصة للمقالات الطويلة والمدونات الثقافية.",
+    badge: "إبداعي",
+  },
+  {
+    name: "هوية بصرية مبتكرة",
+    heading: fonts.find((f) => f.name === "Alexandria")!,
+    body: fonts.find((f) => f.name === "Alyamama")!,
+    description:
+      "توليفة تجمع بين اتساع الخطوط العصرية وتفاصيل الخطوط الورقية لخلق طابع بصري فريد.",
+    badge: "إبداعي",
+  },
+  {
+    name: "عفوي وودود",
+    heading: fonts.find((f) => f.name === "Playpen Sans Arabic")!,
+    body: fonts.find((f) => f.name === "Harmattan")!,
+    description:
+      "طابع مرح يكسر الرسمية بلمسة يدوية، رائع للمحتوى التعليمي والتطبيقات التفاعلية.",
+    badge: "إبداعي",
   },
 ];
