@@ -180,24 +180,27 @@ export function FontControls({
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center gap-2">
                         <Tooltip>
-                          <TooltipTrigger asChild>
-                            <div
-                              onClick={(e) => e.stopPropagation()}
-                              className="flex items-center"
-                            >
-                              <Checkbox
-                                checked={isInComparison}
-                                onCheckedChange={() =>
-                                  onToggleComparison(combo)
-                                }
-                                disabled={
-                                  !isInComparison &&
-                                  comparisonCombos.length >= 3
-                                }
-                                className="bg-background"
-                              />
-                            </div>
-                          </TooltipTrigger>
+                          <TooltipTrigger
+                            delay={200}
+                            render={
+                              <div
+                                onClick={(e) => e.stopPropagation()}
+                                className="flex items-center"
+                              >
+                                <Checkbox
+                                  checked={isInComparison}
+                                  onCheckedChange={() =>
+                                    onToggleComparison(combo)
+                                  }
+                                  disabled={
+                                    !isInComparison &&
+                                    comparisonCombos.length >= 3
+                                  }
+                                  className="bg-background"
+                                />
+                              </div>
+                            }
+                          ></TooltipTrigger>
                           <TooltipContent>
                             <p>أضف للمقارنة</p>
                           </TooltipContent>
