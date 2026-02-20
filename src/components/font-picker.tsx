@@ -69,7 +69,7 @@ body { font-family: ${bodyFont.value}; }
             !(
               c.heading.name === combo.heading.name &&
               c.body.name === combo.body.name
-            )
+            ),
         );
       } else {
         if (prev.length >= 3) return prev;
@@ -103,9 +103,9 @@ body { font-family: ${bodyFont.value}; }
         </div>
 
         <div className="grid gap-8 lg:grid-cols-[1fr_350px] xl:grid-cols-[1fr_400px] items-start">
-          <div className="order-2 lg:order-1 relative group">
-            <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-2xl blur-xl opacity-50 group-hover:opacity-75 transition duration-500" />
-            <div className="relative rounded-xl border bg-card text-card-foreground shadow-xl overflow-hidden">
+          {/* Font Preview */}
+          <div className="order-2 lg:order-1 relative group lg:sticky lg:top-16 lg:h-[calc(100vh-4rem)] lg:overflow-y-auto lg:scrollbar-hide">
+            <div className="relative rounded-xl border bg-card text-card-foreground shadow-xl overflow-hidden mx-4">
               <div className="absolute top-4 left-4 z-10">
                 <Button
                   variant="secondary"
@@ -202,6 +202,7 @@ body { font-family: ${bodyFont.value}; }
             </div>
           </div>
 
+          {/* Font picker and customization */}
           <div className="order-1 lg:order-2">
             <div className="sticky top-8">
               <FontControls
