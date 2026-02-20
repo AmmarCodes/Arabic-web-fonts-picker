@@ -1,15 +1,15 @@
-import { useEffect } from 'react';
-import type { Font } from '../data/fonts';
+import { useEffect } from "react";
+import type { Font } from "../data/fonts";
 
 export function useFontLoader(fonts: Font[]) {
   useEffect(() => {
-    fonts.forEach(font => {
-      const linkId = `font-${font.name.replace(/\s+/g, '-')}`;
+    fonts.forEach((font) => {
+      const linkId = `font-${font.name.replace(/\s+/g, "-")}`;
       if (!document.getElementById(linkId)) {
-        const link = document.createElement('link');
+        const link = document.createElement("link");
         link.id = linkId;
         link.href = font.url;
-        link.rel = 'stylesheet';
+        link.rel = "stylesheet";
         document.head.appendChild(link);
       }
     });

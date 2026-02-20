@@ -52,8 +52,8 @@ export function FontControls({
 }: FontControlsProps) {
   return (
     <div className="space-y-6">
-      <Card className="p-6 space-y-4">
-        <h2 className="text-xl font-semibold mb-4">تخصيص الخطوط</h2>
+      <Card className="space-y-4 p-6">
+        <h2 className="mb-4 text-xl font-semibold">تخصيص الخطوط</h2>
         <div className="grid gap-4 md:grid-cols-2">
           <div className="space-y-2">
             <Label>خط العناوين</Label>
@@ -100,11 +100,11 @@ export function FontControls({
           </div>
         </div>
 
-        <div className="pt-4 border-t space-y-4">
+        <div className="space-y-4 border-t pt-4">
           <div className="space-y-2">
             <div className="flex items-center justify-between">
               <Label>حجم العناوين</Label>
-              <span className="text-sm text-muted-foreground">
+              <span className="text-muted-foreground text-sm">
                 {headingSize}px
               </span>
             </div>
@@ -121,7 +121,7 @@ export function FontControls({
           <div className="space-y-2">
             <div className="flex items-center justify-between">
               <Label>حجم النصوص</Label>
-              <span className="text-sm text-muted-foreground">
+              <span className="text-muted-foreground text-sm">
                 {bodySize}px
               </span>
             </div>
@@ -152,7 +152,7 @@ export function FontControls({
             </Button>
           )}
         </div>
-        <div className="grid gap-4 grid-cols-1">
+        <div className="grid grid-cols-1 gap-4">
           <TooltipProvider>
             {combinations.map((combo) => {
               const isSelected =
@@ -161,23 +161,23 @@ export function FontControls({
               const isInComparison = comparisonCombos.some(
                 (c) =>
                   c.heading.name === combo.heading.name &&
-                  c.body.name === combo.body.name
+                  c.body.name === combo.body.name,
               );
 
               return (
                 <div
                   key={combo.name}
                   className={cn(
-                    "group relative overflow-hidden rounded-xl border bg-card text-card-foreground shadow-sm transition-all hover:shadow-md hover:border-primary/50",
+                    "group bg-card text-card-foreground hover:border-primary/50 relative overflow-hidden rounded-xl border shadow-sm transition-all hover:shadow-md",
                     isSelected &&
-                      "border-primary ring-1 ring-primary shadow-md bg-primary/5"
+                      "border-primary ring-primary bg-primary/5 shadow-md ring-1",
                   )}
                 >
                   <div
-                    className="p-4 cursor-pointer"
+                    className="cursor-pointer p-4"
                     onClick={() => onApplyCombination(combo)}
                   >
-                    <div className="flex items-center justify-between mb-2">
+                    <div className="mb-2 flex items-center justify-between">
                       <div className="flex items-center gap-2">
                         <Tooltip>
                           <TooltipTrigger
@@ -207,10 +207,10 @@ export function FontControls({
                         </Tooltip>
                         <h3
                           className={cn(
-                            "font-bold text-lg transition-colors",
+                            "text-lg font-bold transition-colors",
                             isSelected
                               ? "text-primary"
-                              : "group-hover:text-primary"
+                              : "group-hover:text-primary",
                           )}
                         >
                           {combo.name}
@@ -218,7 +218,7 @@ export function FontControls({
                         {combo.badge && (
                           <span
                             className={cn(
-                              "text-xs px-2 py-0.5 rounded-full font-medium",
+                              "rounded-full px-2 py-0.5 text-xs font-medium",
                               combo.badge === "موصى به" &&
                                 "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
                               combo.badge === "عصري" &&
@@ -230,7 +230,7 @@ export function FontControls({
                               combo.badge === "رسمي" &&
                                 "bg-lime-500/10 text-lime-600 dark:text-lime-400",
                               combo.badge === "إبداعي" &&
-                                "bg-cyan-500/10 text-cyan-600 dark:text-cyan-400"
+                                "bg-cyan-500/10 text-cyan-600 dark:text-cyan-400",
                             )}
                           >
                             {combo.badge}
@@ -239,30 +239,30 @@ export function FontControls({
                       </div>
                       <div className="flex items-center gap-2">
                         {isSelected && (
-                          <div className="h-2 w-2 rounded-full bg-primary animate-pulse" />
+                          <div className="bg-primary h-2 w-2 animate-pulse rounded-full" />
                         )}
                       </div>
                     </div>
-                    <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
+                    <p className="text-muted-foreground mb-4 line-clamp-2 text-sm">
                       {combo.description}
                     </p>
                     <div className="space-y-2">
-                      <div className="flex items-center justify-between text-sm bg-muted/50 p-2 rounded-md">
+                      <div className="bg-muted/50 flex items-center justify-between rounded-md p-2 text-sm">
                         <span className="text-muted-foreground">العنوان</span>
-                        <span className="font-medium font-mono text-xs bg-background px-2 py-0.5 rounded border">
+                        <span className="bg-background rounded border px-2 py-0.5 font-mono text-xs font-medium">
                           {combo.heading.name}
                         </span>
                       </div>
-                      <div className="flex items-center justify-between text-sm bg-muted/50 p-2 rounded-md">
+                      <div className="bg-muted/50 flex items-center justify-between rounded-md p-2 text-sm">
                         <span className="text-muted-foreground">النص</span>
-                        <span className="font-medium font-mono text-xs bg-background px-2 py-0.5 rounded border">
+                        <span className="bg-background rounded border px-2 py-0.5 font-mono text-xs font-medium">
                           {combo.body.name}
                         </span>
                       </div>
                     </div>
                   </div>
                   {!isSelected && (
-                    <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                    <div className="bg-primary/5 pointer-events-none absolute inset-0 opacity-0 transition-opacity group-hover:opacity-100" />
                   )}
                 </div>
               );

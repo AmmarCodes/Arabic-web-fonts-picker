@@ -10,7 +10,6 @@ export interface FontCombination {
   heading: Font;
   body: Font;
   description: string;
-  // Added 'رسمي' (Formal) and 'إبداعي' (Creative) to give you more descriptive options
   badge?: "موصى به" | "عصري" | "تقليدي" | "هندسي" | "رسمي" | "إبداعي";
 }
 

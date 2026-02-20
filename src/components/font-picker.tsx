@@ -22,7 +22,7 @@ export function FontPicker() {
   const [bodySize, setBodySize] = useState(18);
   const [copied, setCopied] = useState(false);
   const [comparisonCombos, setComparisonCombos] = useState<FontCombination[]>(
-    []
+    [],
   );
   const [showComparison, setShowComparison] = useState(false);
 
@@ -61,7 +61,7 @@ body { font-family: ${bodyFont.value}; }
       const exists = prev.some(
         (c) =>
           c.heading.name === combo.heading.name &&
-          c.body.name === combo.body.name
+          c.body.name === combo.body.name,
       );
       if (exists) {
         return prev.filter(
@@ -88,29 +88,29 @@ body { font-family: ${bodyFont.value}; }
         />
       )}
 
-      <div className="container mx-auto py-12 px-4 space-y-12 max-w-7xl">
-        <div className="text-center space-y-4 relative">
+      <div className="container mx-auto max-w-7xl space-y-12 px-4 py-12">
+        <div className="relative space-y-4 text-center">
           <div className="absolute top-0 left-0">
             <ThemeToggle />
           </div>
-          <h1 className="text-5xl font-extrabold tracking-tight bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent pb-2">
+          <h1 className="from-primary to-primary/60 bg-linear-to-r bg-clip-text pb-2 text-5xl font-extrabold tracking-tight text-transparent">
             منسق الخطوط العربية
           </h1>
-          <p className="text-muted-foreground text-xl max-w-2xl mx-auto">
+          <p className="text-muted-foreground mx-auto max-w-2xl text-xl">
             اكتشف التوليفة المثالية لمشروعك القادم من مجموعة مختارة من خطوط جوجل
             العربية.
           </p>
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-[1fr_350px] xl:grid-cols-[1fr_400px] items-start">
+        <div className="grid items-start gap-8 lg:grid-cols-[1fr_350px] xl:grid-cols-[1fr_400px]">
           {/* Font Preview */}
-          <div className="order-2 lg:order-1 relative group lg:sticky lg:top-16 lg:h-[calc(100vh-4rem)] lg:overflow-y-auto lg:scrollbar-hide">
-            <div className="relative rounded-xl border bg-card text-card-foreground shadow-xl overflow-hidden mx-4">
+          <div className="group lg:scrollbar-hide relative order-2 lg:sticky lg:top-16 lg:order-1 lg:h-[calc(100vh-4rem)] lg:overflow-y-auto">
+            <div className="bg-card text-card-foreground relative mx-4 overflow-hidden rounded-xl border shadow-xl">
               <div className="absolute top-4 left-4 z-10">
                 <Button
                   variant="secondary"
                   size="sm"
-                  className="shadow-sm backdrop-blur-sm bg-background/80 hover:bg-background"
+                  className="bg-background/80 hover:bg-background shadow-sm backdrop-blur-sm"
                   onClick={handleCopyCSS}
                 >
                   {copied ? (
@@ -127,10 +127,10 @@ body { font-family: ${bodyFont.value}; }
                 </Button>
               </div>
 
-              <div className="p-8 md:p-16 flex flex-col justify-center space-y-10 min-h-[600px] bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] dark:bg-[radial-gradient(#1f2937_1px,transparent_1px)]">
+              <div className="flex min-h-150 flex-col justify-center space-y-10 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] bg-size-[16px_16px] p-8 md:p-16 dark:bg-[radial-gradient(#1f2937_1px,transparent_1px)]">
                 <div className="space-y-6">
                   <h1
-                    className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-foreground"
+                    className="text-foreground text-5xl leading-tight font-bold md:text-6xl lg:text-7xl"
                     style={{
                       fontFamily: headingFont.value,
                       fontSize: `${headingSize}px`,
@@ -142,7 +142,7 @@ body { font-family: ${bodyFont.value}; }
                     {previewText.heading}
                   </h1>
                   <h2
-                    className="text-2xl md:text-3xl text-muted-foreground font-medium"
+                    className="text-muted-foreground text-2xl font-medium md:text-3xl"
                     style={{
                       fontFamily: headingFont.value,
                       fontSize: `${headingSize * 0.6}px`,
@@ -159,7 +159,7 @@ body { font-family: ${bodyFont.value}; }
 
                 <div className="space-y-6">
                   <blockquote
-                    className="mt-8 border-r-4 border-primary/50 pr-6 py-2 text-xl md:text-2xl text-muted-foreground bg-muted/30"
+                    className="border-primary/50 text-muted-foreground bg-muted/30 mt-8 border-r-4 py-2 pr-6 text-xl md:text-2xl"
                     style={{
                       fontFamily: headingFont.value,
                       fontSize: `${bodySize * 1.2}px`,
@@ -172,7 +172,7 @@ body { font-family: ${bodyFont.value}; }
                   </blockquote>
 
                   <p
-                    className="text-lg md:text-xl leading-relaxed text-foreground/80 max-w-3xl ml-auto"
+                    className="text-foreground/80 ml-auto max-w-3xl text-lg leading-relaxed md:text-xl"
                     style={{
                       fontFamily: bodyFont.value,
                       fontSize: `${bodySize}px`,
@@ -184,7 +184,7 @@ body { font-family: ${bodyFont.value}; }
                     {previewText.paragraph}
                   </p>
                   <p
-                    className="text-lg md:text-xl leading-relaxed text-foreground/80 max-w-3xl ml-auto"
+                    className="text-foreground/80 ml-auto max-w-3xl text-lg leading-relaxed md:text-xl"
                     style={{
                       fontFamily: bodyFont.value,
                       fontSize: `${bodySize}px`,
@@ -226,14 +226,14 @@ body { font-family: ${bodyFont.value}; }
           </div>
         </div>
 
-        <footer className="text-center text-muted-foreground py-8 border-t">
+        <footer className="text-muted-foreground border-t py-8 text-center">
           <p>
             طوره{" "}
             <a
               href="https://ammar.codes"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline hover:text-primary"
+              className="hover:text-primary underline"
             >
               عمار العقاد
             </a>
