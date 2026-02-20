@@ -89,7 +89,7 @@ body { font-family: ${bodyFont.value}; }
       )}
 
       <div className="container mx-auto max-w-7xl space-y-12 px-4 py-12">
-        <div className="relative space-y-4 text-center">
+        <header className="relative space-y-4 text-center">
           <div className="absolute top-0 left-0">
             <ThemeToggle />
           </div>
@@ -100,9 +100,12 @@ body { font-family: ${bodyFont.value}; }
             اكتشف التوليفة المثالية لمشروعك القادم من مجموعة مختارة من خطوط جوجل
             العربية.
           </p>
-        </div>
+        </header>
 
-        <div className="grid items-start gap-8 lg:grid-cols-[1fr_350px] xl:grid-cols-[1fr_400px]">
+        <main
+          id="main-content"
+          className="grid items-start gap-8 lg:grid-cols-[1fr_350px] xl:grid-cols-[1fr_400px]"
+        >
           {/* Font Preview */}
           <div className="group lg:scrollbar-hide relative order-2 lg:sticky lg:top-16 lg:order-1 lg:h-[calc(100vh-4rem)] lg:overflow-y-auto">
             <div className="bg-card text-card-foreground relative mx-4 overflow-hidden rounded-xl border shadow-xl">
@@ -129,7 +132,7 @@ body { font-family: ${bodyFont.value}; }
 
               <div className="flex min-h-150 flex-col justify-center space-y-10 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] bg-size-[16px_16px] p-8 md:p-16 dark:bg-[radial-gradient(#1f2937_1px,transparent_1px)]">
                 <div className="space-y-6">
-                  <h1
+                  <h2
                     className="text-foreground text-5xl leading-tight font-bold md:text-6xl lg:text-7xl"
                     style={{
                       fontFamily: headingFont.value,
@@ -140,8 +143,8 @@ body { font-family: ${bodyFont.value}; }
                     dir="rtl"
                   >
                     {previewText.heading}
-                  </h1>
-                  <h2
+                  </h2>
+                  <h3
                     className="text-muted-foreground text-2xl font-medium md:text-3xl"
                     style={{
                       fontFamily: headingFont.value,
@@ -152,7 +155,7 @@ body { font-family: ${bodyFont.value}; }
                     dir="rtl"
                   >
                     {previewText.subheading}
-                  </h2>
+                  </h3>
                 </div>
 
                 <Separator className="w-1/2!" />
@@ -224,7 +227,7 @@ body { font-family: ${bodyFont.value}; }
               />
             </div>
           </div>
-        </div>
+        </main>
 
         <footer className="text-muted-foreground border-t py-8 text-center">
           <p>
