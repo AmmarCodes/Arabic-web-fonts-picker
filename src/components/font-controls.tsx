@@ -56,7 +56,7 @@ export function FontControls({
         <h2 className="mb-4 text-xl font-semibold">تخصيص الخطوط</h2>
         <div className="grid gap-4 md:grid-cols-2">
           <div className="space-y-2">
-            <Label>خط العناوين</Label>
+            <Label htmlFor="heading-font-select">خط العناوين</Label>
             <Select
               value={headingFont.name}
               onValueChange={(val) => {
@@ -64,7 +64,7 @@ export function FontControls({
                 if (font) onHeadingFontChange(font);
               }}
             >
-              <SelectTrigger>
+              <SelectTrigger id="heading-font-select">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -78,7 +78,7 @@ export function FontControls({
           </div>
 
           <div className="space-y-2">
-            <Label>خط النصوص</Label>
+            <Label htmlFor="body-font-select">خط النصوص</Label>
             <Select
               value={bodyFont.name}
               onValueChange={(val) => {
@@ -86,7 +86,7 @@ export function FontControls({
                 if (font) onBodyFontChange(font);
               }}
             >
-              <SelectTrigger>
+              <SelectTrigger id="body-font-select">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -103,12 +103,16 @@ export function FontControls({
         <div className="space-y-4 border-t pt-4">
           <div className="space-y-2">
             <div className="flex items-center justify-between">
-              <Label>حجم العناوين</Label>
+              <Label id="heading-size-label" htmlFor="heading-size-slider">
+                حجم العناوين
+              </Label>
               <span className="text-muted-foreground text-sm">
                 {headingSize}px
               </span>
             </div>
             <Slider
+              id="heading-size-slider"
+              aria-labelledby="heading-size-label"
               value={[headingSize]}
               onValueChange={(value) => onHeadingSizeChange(value[0])}
               min={24}
@@ -120,12 +124,16 @@ export function FontControls({
 
           <div className="space-y-2">
             <div className="flex items-center justify-between">
-              <Label>حجم النصوص</Label>
+              <Label id="body-size-label" htmlFor="body-size-slider">
+                حجم النصوص
+              </Label>
               <span className="text-muted-foreground text-sm">
                 {bodySize}px
               </span>
             </div>
             <Slider
+              id="body-size-slider"
+              aria-labelledby="body-size-label"
               value={[bodySize]}
               onValueChange={(value) => onBodySizeChange(value[0])}
               min={12}
@@ -168,43 +176,49 @@ export function FontControls({
                 <div
                   key={combo.name}
                   className={cn(
-                    "group bg-card text-card-foreground hover:border-primary/50 relative overflow-hidden rounded-xl border shadow-sm transition-all hover:shadow-md",
+                    "group bg-card text-card-foreground hover:border-primary/50 relative cursor-pointer overflow-hidden rounded-xl border shadow-sm transition-all hover:shadow-md",
                     isSelected &&
                       "border-primary ring-primary bg-primary/5 shadow-md ring-1",
                   )}
                 >
-                  <div
-                    className="cursor-pointer p-4"
-                    onClick={() => onApplyCombination(combo)}
-                  >
+                  <div className="p-4">
                     <div className="mb-2 flex items-center justify-between">
+                      <Tooltip>
+                        <TooltipTrigger
+                          delay={200}
+                          render={
+                            <div className="flex cursor-pointer items-center">
+                              <Checkbox
+                                checked={isInComparison}
+                                onCheckedChange={() =>
+                                  onToggleComparison(combo)
+                                }
+                                disabled={
+                                  !isInComparison &&
+                                  comparisonCombos.length >= 3
+                                }
+                                className="bg-background cursor-pointer disabled:cursor-not-allowed"
+                              />
+                            </div>
+                          }
+                        ></TooltipTrigger>
+                        <TooltipContent>
+                          <p>أضف للمقارنة</p>
+                        </TooltipContent>
+                      </Tooltip>
                       <div className="flex items-center gap-2">
-                        <Tooltip>
-                          <TooltipTrigger
-                            delay={200}
-                            render={
-                              <div
-                                onClick={(e) => e.stopPropagation()}
-                                className="flex items-center"
-                              >
-                                <Checkbox
-                                  checked={isInComparison}
-                                  onCheckedChange={() =>
-                                    onToggleComparison(combo)
-                                  }
-                                  disabled={
-                                    !isInComparison &&
-                                    comparisonCombos.length >= 3
-                                  }
-                                  className="bg-background"
-                                />
-                              </div>
-                            }
-                          ></TooltipTrigger>
-                          <TooltipContent>
-                            <p>أضف للمقارنة</p>
-                          </TooltipContent>
-                        </Tooltip>
+                        {isSelected && (
+                          <div className="bg-primary h-2 w-2 animate-pulse rounded-full" />
+                        )}
+                      </div>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => onApplyCombination(combo)}
+                      className="focus-visible:ring-primary/50 w-full cursor-pointer rounded-md text-start focus-visible:ring-2 focus-visible:outline-none"
+                      aria-label={`تطبيق توليفة ${combo.name}`}
+                    >
+                      <div className="mb-2 flex items-center gap-2">
                         <h3
                           className={cn(
                             "text-lg font-bold transition-colors",
@@ -237,29 +251,24 @@ export function FontControls({
                           </span>
                         )}
                       </div>
-                      <div className="flex items-center gap-2">
-                        {isSelected && (
-                          <div className="bg-primary h-2 w-2 animate-pulse rounded-full" />
-                        )}
+                      <p className="text-muted-foreground mb-4 line-clamp-2 text-sm">
+                        {combo.description}
+                      </p>
+                      <div className="space-y-2">
+                        <div className="bg-muted/50 flex items-center justify-between rounded-md p-2 text-sm">
+                          <span className="text-muted-foreground">العنوان</span>
+                          <span className="bg-background rounded border px-2 py-0.5 font-mono text-xs font-medium">
+                            {combo.heading.name}
+                          </span>
+                        </div>
+                        <div className="bg-muted/50 flex items-center justify-between rounded-md p-2 text-sm">
+                          <span className="text-muted-foreground">النص</span>
+                          <span className="bg-background rounded border px-2 py-0.5 font-mono text-xs font-medium">
+                            {combo.body.name}
+                          </span>
+                        </div>
                       </div>
-                    </div>
-                    <p className="text-muted-foreground mb-4 line-clamp-2 text-sm">
-                      {combo.description}
-                    </p>
-                    <div className="space-y-2">
-                      <div className="bg-muted/50 flex items-center justify-between rounded-md p-2 text-sm">
-                        <span className="text-muted-foreground">العنوان</span>
-                        <span className="bg-background rounded border px-2 py-0.5 font-mono text-xs font-medium">
-                          {combo.heading.name}
-                        </span>
-                      </div>
-                      <div className="bg-muted/50 flex items-center justify-between rounded-md p-2 text-sm">
-                        <span className="text-muted-foreground">النص</span>
-                        <span className="bg-background rounded border px-2 py-0.5 font-mono text-xs font-medium">
-                          {combo.body.name}
-                        </span>
-                      </div>
-                    </div>
+                    </button>
                   </div>
                   {!isSelected && (
                     <div className="bg-primary/5 pointer-events-none absolute inset-0 opacity-0 transition-opacity group-hover:opacity-100" />

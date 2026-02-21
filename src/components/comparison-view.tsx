@@ -22,15 +22,20 @@ export function ComparisonView({
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8 flex items-center justify-between">
           <h2 className="text-3xl font-bold">مقارنة الخطوط</h2>
-          <Button variant="ghost" size="icon" onClick={onClose}>
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={onClose}
+            aria-label="إغلاق المقارنة"
+          >
             <X className="h-5 w-5" />
           </Button>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {combinations.map((combo, index) => (
+          {combinations.map((combo) => (
             <div
-              key={index}
+              key={`${combo.heading.name}-${combo.body.name}`}
               className="bg-card text-card-foreground space-y-4 rounded-xl border p-6 shadow-lg"
             >
               <div className="border-b pb-3">

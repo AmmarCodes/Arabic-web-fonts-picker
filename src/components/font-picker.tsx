@@ -137,6 +137,9 @@ body { font-family: ${bodyFont.value}; }
               </div>
 
               <div className="flex min-h-150 flex-col justify-center space-y-10 bg-[radial-gradient(#d7e3f0_1px,transparent_1px)] bg-size-[16px_16px] p-8 md:p-16 dark:bg-[radial-gradient(#243447_1px,transparent_1px)]">
+                <p id="editable-preview-hint" className="sr-only">
+                  يمكنك تعديل نصوص المعاينة مباشرة.
+                </p>
                 <div className="space-y-6">
                   <h2
                     className="text-foreground text-5xl leading-tight font-bold md:text-6xl lg:text-7xl"
@@ -146,6 +149,8 @@ body { font-family: ${bodyFont.value}; }
                     }}
                     contentEditable
                     suppressContentEditableWarning
+                    aria-label="العنوان (قابل للتعديل)"
+                    aria-describedby="editable-preview-hint"
                     dir="rtl"
                   >
                     {previewText.heading}
@@ -158,6 +163,8 @@ body { font-family: ${bodyFont.value}; }
                     }}
                     contentEditable
                     suppressContentEditableWarning
+                    aria-label="العنوان الفرعي (قابل للتعديل)"
+                    aria-describedby="editable-preview-hint"
                     dir="rtl"
                   >
                     {previewText.subheading}
@@ -175,6 +182,8 @@ body { font-family: ${bodyFont.value}; }
                     }}
                     contentEditable
                     suppressContentEditableWarning
+                    aria-label="الاقتباس (قابل للتعديل)"
+                    aria-describedby="editable-preview-hint"
                     dir="rtl"
                   >
                     {previewText.poem}
@@ -188,6 +197,7 @@ body { font-family: ${bodyFont.value}; }
                     }}
                     contentEditable
                     suppressContentEditableWarning
+                    aria-describedby="editable-preview-hint"
                     dir="rtl"
                   >
                     {previewText.paragraph}
@@ -200,6 +210,7 @@ body { font-family: ${bodyFont.value}; }
                     }}
                     contentEditable
                     suppressContentEditableWarning
+                    aria-describedby="editable-preview-hint"
                     dir="rtl"
                   >
                     يمكنك تجربة الكتابة هنا مباشرة لرؤية كيف يبدو الخط في النصوص
