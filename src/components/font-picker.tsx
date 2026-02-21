@@ -248,7 +248,7 @@ body { font-family: ${bodyFont.value}; }
 
         <footer className="text-muted-foreground border-t py-8 text-center">
           <p>
-            طوره{" "}
+            طوّره{" "}
             <a
               href="https://ammar.codes"
               target="_blank"
@@ -256,6 +256,15 @@ body { font-family: ${bodyFont.value}; }
               className="hover:text-primary underline"
             >
               عمار العقاد
+            </a>{" "}
+            •{" "}
+            <a
+              href="https://github.com/AmmarCodes/arabic-web-fonts-picker"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-primary underline"
+            >
+              GitHub
             </a>
           </p>
         </footer>
